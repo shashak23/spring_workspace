@@ -1,0 +1,5 @@
+package my.spring.springweb.sample01.vo;
+
+public class User {
+
+}

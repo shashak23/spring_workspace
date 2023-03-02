@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- JQuery에 대한 cdn 사용하기  -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- js script 만들기 -->
+<script src="../js/common.js"/>
+</head>
+<body>
+	<h1>학생 정보 등록</h1>
+	<hr>
+	<!-- 폼마다 액션이 다를 것이기떄문에 빈칸으로 두기 -->
+	<form id="myForm" action="" method="POST">
+		action: 
+		<select>
+			<!-- 내가 호출할 핸들러를 부르기 -->
+			<option>/springweb/seesionAttributesTest01</option>
+		</select>
+		
+	</form>
+</body>
+</html>

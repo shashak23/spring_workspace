@@ -1,0 +1,20 @@
+package my.spring.springweb.sample06;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class LottoController {
+	@GetMapping(value="/lotto")  // vo 경로 설정
+	public String lottoProcess() {
+		
+		// service 객체를 만들어서 로직을 처리해야 해요 -> service 만들기 ㅋㅋㅋㅋㅋㅋ
+		LottoService service = new LottoService(); 
+		boolean result = service.checkLottoNumber();  // 이게 문제가 1명이며 상관이 없는데 여러명이 들어오면 1명당 1개의 서비스 객체가 생기는데
+		// 객체가 가지는 메소드를 호출하는 게 문제인대 -> 서비스 객체는 stateless는 결국 하나를 만들어놓고 공유하는 게 훨씬 효율적이다 ! 
+		// 이거 bean으로 등록해서 편하게 써보자~~! -> service를 bean으로 등록하려면 어ㄸ헥 해얗애?
+		// 클래스 위에 어노테이션 붙이기 -> 1. component 를 붙이면 헷갈릴 수 있으니까!     2.service를 붙이기 
+		
+		return null;
+	}
+}

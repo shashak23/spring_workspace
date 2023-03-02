@@ -1,0 +1,18 @@
+package my.spring.springweb.sample07;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping(value="seesionAttributesTest01")  // 어떤 url로 갈 지 정하겠쥬? 
+public class SessionAttributeController01 {
+	// post 방식으로 넘어와서 
+	@PostMapping
+	public String Handler() {   // 01 핸들러 만들기 
+		
+		
+		
+		return null;
+	}
+}

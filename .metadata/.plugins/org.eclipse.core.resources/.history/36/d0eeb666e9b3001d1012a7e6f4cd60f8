@@ -1,0 +1,26 @@
+package my.spring.springweb.sample01;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+@RequestMapping(value="testController06")
+public class TestController06 {
+	
+	private static final Logger Logger = 
+			LoggerFactory.getLogger(TestController06.class);
+	
+	// 진짜로 bean이 생성되는지 확인하기
+	public TestController06() {
+		Logger.debug("TestController06 Bean 생성");
+	}
+	
+	@GetMapping
+	public ModelAndView showStaticView() {
+		logger.debug("testController06 호출");
+	}
+}

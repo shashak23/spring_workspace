@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>싱싱 과일 바구니 사이트입니다!</h1>
+		<h2>과일을 선택해 주세요!</h2>
+	<form>
+		<img src="/springweb/resources/imgs/apple.gif" name="apple"/>
+		<img src="/springweb/resources/imgs/banana.jpg" name=""/>
+		<img src="/springweb/resources/imgs/r4.gif" name=""/>
+	</form>	
+</body>
+</html>

@@ -1,0 +1,9 @@
+package my.spring.springweb.sample01;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class TestController02 {
+	//핸들러 역할을 함
+	//requestmapping을 다양하게 쓸 수 있는데 이에 대한 확장버전!
+}

@@ -1,0 +1,54 @@
+package my.spring.springweb.sample02;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class MemberController {
+//	@PostMapping(value = "member1")
+//	// requestparam을 주고 뒤에는 어떤 이름으로 넘어갈건지 받을건지를 명시를 해야함
+//	// html에 있는 name으로 들어오는 것을 받을거란 걸 쓰기 
+//	// 이 값이 안들어 올 수 도 있으니까 -- default메뉴를 설정해둬야해요 
+//	public ModelAndView myMethod1(
+//			// 굳이 바꿀 필요가 없으면 name, name을 쓰기도 해요
+//			@RequestParam(value="name", defaultValue="없음") String name,
+//			@RequestParam(value="phone", defaultValue="없음") String phone,
+//			// 넘어오는 key 와 value가 이름이 같으면 생략할 수 있따! 
+////			@RequestParam(value="id", defaultValue="없음") String id,
+//			String id,
+//			@RequestParam(value="pw", defaultValue="없음") String pw
+//			) {
+//		//모델 객체 대신에 모델엔뷰 객체를 사용하기 
+//		ModelAndView mav = new ModelAndView();
+//		// 내가 원하는 객체 붙이기
+//		// 모델엔뷰 객체 만들어서 내가 에드오브젝트하면 request객체로 전달돼요?
+//		mav.addObject("name", name);
+//		mav.addObject("phone", phone);
+//		mav.addObject("id", id);
+//		mav.addObject("pw", pw);
+//		
+//		mav.setViewName("/memberView");   // jsp 이름을 여기에다가 쓰기 
+//		// view객체를 만드는데 이 때 directive가 veiw를 찾자고 하면 
+//		// string return을 안하는 이유는   모델을 안쓰는 이유는 이거 하나로 다 할수가 잆어요! 
+//		
+//		return null;
+//	}
+	
+
+	@PostMapping(value = "member2")
+	//결론적으로는 멤버라는 객체를 만들고 
+	public ModelAndView myMethod2(Member vo) {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		
+		mav.setViewName("/memberView");   // jsp 이름을 여기에다가 쓰기 
+		// view객체를 만드는데 이 때 directive가 veiw를 찾자고 하면 
+		// string return을 안하는 이유는   모델을 안쓰는 이유는 이거 하나로 다 할수가 잆어요! 
+		
+		return null;
+	}
+	
+}

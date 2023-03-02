@@ -1,0 +1,85 @@
+package my.spring.springweb.sample08;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.google.gson.Gson;
+
+@Controller
+public class RequestMappingProducesController {
+	
+	Logger log = LogManager.getLogger("case3");
+	
+	@RequestMapping(value="testProduces1")  // 속성을 쓰지 않고 그대로! 	
+	public String method01(Model model) {
+		
+		model.addAttribute("msg","고양이는 야옹야옹");
+		
+		return "sample08/requestMappingProducesView"; //jsp 연결
+	}
+	
+	@RequestMapping(value="testProduces2", produces="text/plain; charset=UTF-8")  // 이 컨트롤러가 결과로 주는 조건은 produces에요!
+											// 얘가 끝까지 클라이언트에게 가는 거라는 보장이 없음
+											// 어차피 넘어가는 건 jsp가 넘어가게 됨
+											// produces="text/plain; charset=UTF-8") 단독으로 쓰이면 의미가 크지 못 해! 
+											// 결과로 리턴되는 놈이 다 처리를 하는거라서 jsp로 되니까~!
+	public String method02(Model model) {
+		
+		model.addAttribute("msg","고양이는 야옹야옹");
+		
+		return "sample08/requestMappingProducesView"; //jsp 연결
+	}
+	
+	@RequestMapping(value="testProduces3",
+					produces="text/html; charset=UTF-8")  
+	public void method03(HttpServletResponse response) {
+		
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();		//ajax할 때
+			out.println("<html><head></head>");
+			out.println("<body><h1>고양이는 야옹야옹<h1></body></html>");
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+		
+		@RequestMapping(value="testProduces4",
+				produces="application/json; charset=UTF-8")  	// 독립적으로 사용되면 의미가 없어요 -> 설정된 게 무시가 되요
+		public void method04(HttpServletResponse response) {
+		
+		try {
+			response.setContentType("application/json; charset=UTF-8");  // 얘에 의해서 지워져요
+			PrintWriter out = response.getWriter();		//json 내보내기
+			// 맵을 가지고 데이터를 만들고 -> 이 데이터를 json 문자열로 변형해야해요
+			Map<String, String> map = new HashMap<String, String>();  // 같이 써야 의미가 생겨요
+			map.put("userName", "김베리");
+			map.put("userAge", "30");
+			map.put("userAddr", "서울시");
+			//gson 으로 변형하기 
+			Gson  gson = new Gson();
+			String str = gson.toJson(map);
+			
+			// 그리고 나서 stream으로 client에게 보내주면 되요
+			out.println(str);
+			out.close();
+		} catch (IOException e) {
+			// 리턴을 보내는 과정에서 다른 처리가 들어가니까 produces와 달라지니까 영향을 받지 않아요
+			e.printStackTrace();
+	}
+
+	}
+}
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>	
+	<h1>Test Link</h1>
+	<hr>
+	<a href="/springweb/body/text/3">text/plain 호출(일반 문자열 리턴하기)</a>
+	<br><br>
+	<a href="/springweb/body/textObject/2">text/plain 호출(ResponseEntity 리턴하기)</a> 
+	<!-- url 쓰는 방법은 사실 좋지 않아요 , rest규칙에는 url에 대문자를 쓰면 안된다는 규칙이 있는데 REST를 안해도 된다면 상관이 없음 -->
+	<br><br>
+	<a href="/springweb/body/json/hong">application/json 호출(VO 리턴)</a> 
+		
+</body>
+</html>

@@ -1,0 +1,28 @@
+package my.spring.springweb.sample05;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class ModelAttributeController {
+	
+	Logger log = LogManager.getLogger("case3");
+	
+	
+	
+	@ModelAttribute("v1")   // 메소드 위에 이걸 줄떄에는 annotation에 이름을 줘야해요!
+	public String createString() {  //일반 메소드
+	
+		log.debug("문자열 객체 생성");
+		return "고양이는 냐옹냐옹";
+	}
+	
+	
+	@RequestMapping
+	public String myMethod() {
+		
+		
+		return null;
+	}
+}

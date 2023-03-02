@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 변수를 만들고 값을 할당할 수 있어요  -->
+	<%
+	int k = 100; 
+	%>
+	<!-- prefix를 이용해서 시작하는데 "c"는 c로 시작 
+			tag를  만들어서 변수를 만들고 값을 할당 할 수 있음-->
+	<c:set var="num1" value="100"/>
+	
+	<!-- 제어문 중 대표적인 'if문' 사용하기  
+			연산의 결!과!로 true냐 false냐가 나오게한다	
+			여기서 num1 은 위의 var이다 
+			여기서 myNum은 model에서 가져온 것이다
+			두 개가 100보다 크니? 맞으면 true로 떨어지고
+			c tag안에 있는 내용이 나오게 됨
+			false면 안에 있는 내용이 나오지 않아요 -->
+	<c:if test="${ num1 + myNum > 100 }">
+		100보다 커요!
+	</c:if>
+</body>
+</html>

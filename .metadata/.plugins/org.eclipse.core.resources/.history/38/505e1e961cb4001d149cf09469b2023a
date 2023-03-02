@@ -1,0 +1,18 @@
+package my.spring.springweb.sample02.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+	private String userName;
+	private int userAge;
+	private String userDept;
+	private String userAddress;
+	
+}

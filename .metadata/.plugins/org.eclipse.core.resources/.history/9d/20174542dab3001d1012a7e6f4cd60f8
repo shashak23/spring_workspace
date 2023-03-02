@@ -1,0 +1,14 @@
+package my.spring.springweb.sample01;
+
+import org.apache.log4j.spi.LoggerFactory;
+import org.slf4j.Logger;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class TestController01 {
+
+		private static final Logger logger = 
+				org.slf4j.LoggerFactory.getLogger(TestController01.class);
+
+
+}

@@ -1,0 +1,16 @@
+package sample05;
+
+public class Snippet {
+	@RequestMapping(value="modelAttributes1") // 위에 있는 data1을 댕겨서 받아보기 
+		public String myMethod(@ModelAttribute("data1") int num1,  
+				// model attribute로 결정된 key들을 model에 받아서 사용할 수 있음
+				@ModelAttribute("data2") int num2, Model model ) { 
+				// num1과 num2는 모델어트리뷰트 붙으면 vo를 만드는 건줄 알았느데 뿐만아니라 모델어트리뷰트에서 나온 결과를 댕겨서 쓸 수도 있따 
+			
+			model.addAttribute("sum", num1 + num2);  // jsp에서 합에 넣을 값인데 key를 따라가면 됨 
+			
+			log.debug("handler 호출");
+			return "sample05/modelResult";
+		}
+}
+

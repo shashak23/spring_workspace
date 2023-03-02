@@ -1,0 +1,5 @@
+package my.spring.springweb.sample09;
+
+public class ResponseBodyController {
+
+}

@@ -1,0 +1,20 @@
+package my.spring.springweb.sample08;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class RequestMappingProducesController {
+	
+	Logger log = LogManager.getLogger("case3");
+	
+	@RequestMapping(value="testProduces1")  // 속성을 쓰지 않고 그대로! 	
+	public String method01(Model model) {
+		
+		model.addAtrribute("msg","고양이는 야옹야옹");
+		
+		return "sample08/requestMappingProducesView";
+	}
+    }
+

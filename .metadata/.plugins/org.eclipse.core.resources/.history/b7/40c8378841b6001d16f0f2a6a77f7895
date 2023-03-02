@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원정보를 입력하세요!</h1>
+	<!-- 내가 넣은 회원정보가 fortag에 들어가야함 
+			내가 만들 class action에 넣기 
+			method에 get을 쓰면 get방식으로 request가 넘어가는데?
+			쿼리스트링 형태로 붙는데 내가 여기서 폼을 만들어서 서버쪽에 리퀘으스틀 날렸을 떄
+			실제 http pcotocpl에 의해서 바디 정보의 데이터가 들어가지 않아요!
+			get은 데이터가 실리지 않고 url에 있어요!!
+			그러나 post방식은 데이터를 담은채로 
+			request body에 들어가게 된다 
+			"get방식과 post방식의 차이!" 
+			get방식은 reuqest와  reponse 처리가 힘들고
+			길이 제한이 있따, 간단하고 빨라서 사용함
+			post방식이 데이터가 요 body안에 들어가서 처리할 수 이쓴데
+			이떄 body는 잘 늘어나서 보다 많은 양의 데이터를 처리할 수 있어요 -->
+	<form action="/springweb/member1" method="GET"></form>
+</body>
+</html>

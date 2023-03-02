@@ -1,0 +1,16 @@
+package my.spring.springweb.sample08;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class RequestMappingConsumesController {
+	
+	@RequestMapping(value="/testController1",method=RequestMethod.GET) // get방식으로 호출할 이름과 방식 적어주기
+	public String myMethod() {
+		
+		
+		return null;
+	}
+}

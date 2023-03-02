@@ -1,0 +1,65 @@
+package my.spring.springweb.sample02;
+
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+
+
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import my.spring.springweb.sample01.TestController08;
+import my.spring.springweb.sample01.vo.User;
+
+@Controller
+public class CalController {
+	private static final Logger Logger =
+			LoggerFactory.getLogger(TestController08.class);
+	
+	@PostMapping
+	public ModelAndView process(int firstNum, 
+			int secondeNum, String operator) {
+		// @RequestParam("")를 이용해서 받아요, (String포함해서 primitive type인 경우) vo아닌 경우!!
+		ModelAndView mav = new ModelAndView(); // 나중에 return mav ;
+		String viewName = ""; // jsp 이름 정하기 ! 
+		
+		//  model은 vieww 객체를 만들었고 그걸 우리는 mav 에 보낼거야 
+		
+		if(operator.equals("div") && secondNum == 0) {  // div 나누기 연산자 넣기 
+			// 나눗셈을 하는데 분목 0이고 무한대(무한대 개념이 없어요, exception이에요)
+			viewName = "sample02/errorResult";
+		} else if (operator.contentEquals("minus")) {
+			result = num1 - secondNum;
+		}  else if (operator.contentEquals("mul")) {
+			result = num1 / secondNum;
+		}
+		 else {
+			 result = num1 * secondNum;
+	    } 
+		viewName = "sample02/calcResult";
+//		mav.addObject("msg",result);
+		
+		
+ 		
+		// firstNum은 html에 했던 name이고 그걸 파라미터에 따라 하면 되고 
+		// 원래 name에 대한 값이 int이면 여기서 파라미터에 String -> int 를 바꾸고 
+		// 그러면 알아서 형변환을 해줄 수 있어요 
+		// 파라미터와 네임이 같으면 @requestparam을 썼던 걸 생략이 가능해요
+		// 이름갖고 맵핑을 해서 순서는 상관없어요!
+		// 이때 User user(vo)을 배울수도 있어요
+		
+		// 이곳에 사용자가 보내준 데이터를 받아야 해요!
+		// 구시대적 발상을 이용하면, injection 하는 거에요
+		// 파라미터 자리에 HttpServletRequest request 넣기 
+//		String num1 = request.getParameter("firstNum");
+		
+		
+		
+		return mav;
+	}
+}

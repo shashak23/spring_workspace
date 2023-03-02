@@ -1,0 +1,43 @@
+package my.spring.springweb.sample09;
+
+import java.nio.charset.Charset;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping(value="/body")
+public class ResponseBodyController {
+	
+	// 1. 문자열로 방식
+	@RequestMapping(value="text/{id}", 
+					produces="text/plain; charset=UTF-8") // 최종적으로 만들 것을 정하기
+	@ResponseBody
+	public String method01(@PathVariable String id) { // 위의 id와 동일하게 잡음 -> because 이름이 같아야 들고 오니까 
+		
+		
+		return "<h1>고양이는 야옹야옹" + id + "</h1>";  // 이 결과가 body에 담겨서 전달됨
+	}
+	
+	// 2. response entity 리턴하기
+	@RequestMapping(value="textObject/{id}", 
+				produces="text/plain; charset=UTF-8") // 최종적으로 만들 것을 정하기
+	@ResponseBody
+	public ResponseEntity<String> method02(@PathVariable String id) { 
+		// 어떤 결과를 줄 것인지 작성하고 
+		String msg = "<h1>고양이는 야옹야옹" + id + "</h1>";
+		
+		// header를 만들고(당연히 객체로)
+		HttpHeaders headers = new HttpHeaders(); // 헤더를 만들어서 직접 지정
+		headers.setContentType(new MediaType("text","plain",Charset.forName("UTF-8")));   // mediatype = MIME type
+		// 객체형태로 리턴하자 (단, 제네릭스도 잡아야 함)
+	
+	return new ResponseEntity<String>(msg, headers, HttpStatus.OK);  // 내가 보낼 메세지, 헤더정보, 상수 
+	}
+}

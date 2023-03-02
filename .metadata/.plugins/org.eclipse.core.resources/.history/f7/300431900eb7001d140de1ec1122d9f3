@@ -1,0 +1,36 @@
+package my.spring.springweb.sample07;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping(value="seesionAttributesTest01")  // 어떤 url로 갈 지 정하겠쥬? 
+public class SessionAttributeController01 {
+	
+	
+	Logger log = LogManager.getLogger("case3");
+	
+	
+	// 핸들러가 호출되기 이전에 아래의 메소드가 호출되요 
+	// 내가 명시적으로 호출한 적이 없지만 핸들러보다 먼저 호출이 된다는 말
+	// data1이란 key로 method의 리턴값이 model에 저장이 되요
+	// 문자열이 자동으로 model에 저장이 될거에요 
+	@ModelAttribute("data1")  // 메소드에 지정함, 명시하기
+	public String createString1() {
+		log.debug("createString1() 호출되었어요! ");
+		return "createString1";
+	}
+	
+	// post 방식으로 넘어와서 
+	@PostMapping
+	public String Handler() {   // 01 핸들러 만들기 
+		
+		
+		
+		return null;
+	}
+}

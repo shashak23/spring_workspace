@@ -1,0 +1,23 @@
+package my.spring.springweb.sample07;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+@Controller
+@SessionAttributes(value= {"memberInfo"})  //세션에 저장을 하기 위해 벨류 만들기 , 사용자 정보 - 멤버 vo , 내가 저  key로 저장하겠다는 뜻
+public class memberRegisterController {
+	@PostMapping(value="memberRegisterStep1")
+	public String handler1 () {
+		
+		
+		return "sample07/step2"; // step1이라는 jsp가 나오겠죠 ?
+	} // 여기서 받은 정보를 쟁여둬야해요 -> model에는 안돼요 -> jsp가 닫으면 model에 닫아져요 -> 그래서 상대적으로 살아있느 시간이 긴 session에 저장함
+	
+	@PostMapping(value="memberRegisterStep2")
+	public String handler2 () {
+		
+		
+		return "sample07/step2"; // step1이라는 jsp가 나오겠죠 ?
+	}
+}

@@ -1,0 +1,32 @@
+package my.spring.springweb.sample08;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class RequestMappingProducesController {
+	
+	Logger log = LogManager.getLogger("case3");
+	
+	@RequestMapping(value="testProduces1")  // 속성을 쓰지 않고 그대로! 	
+	public String method01(Model model) {
+		
+		model.addAttribute("msg","고양이는 야옹야옹");
+		
+		return "sample08/requestMappingProducesView"; //jsp 연결
+	}
+	
+	@RequestMapping(value="testProduces2", produces="text/plain; charset=UTF-8")  // 이 컨트롤러가 결과로 주는 조건은 produces에요!
+											// 얘가 끝까지 클라이언트에게 가는 거라는 보장이 없음
+											// 어차피 넘어가는 건 jsp가 넘어가게 됨
+											// produces="text/plain; charset=UTF-8") 단독으로 쓰이면 의미가 크지 못 해! 
+	public String method02(Model model) {
+		
+		model.addAttribute("msg","고양이는 야옹야옹");
+		
+		return "sample08/requestMappingProducesView"; //jsp 연결
+	}
+ }
+

@@ -1,0 +1,5 @@
+package my.spring.springweb.common;
+
+public class ApplicationContextProvider {
+
+}

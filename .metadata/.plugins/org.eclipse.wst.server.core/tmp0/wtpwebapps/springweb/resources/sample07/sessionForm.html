@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- JQuery에 대한 cdn 사용하기  -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- js script 만들기 -->
+<script src="../js/common.js"></script>
+</head>
+<body>
+	<h1>학생 정보 등록</h1>
+	<hr>
+	<!-- 폼마다 액션이 다를 것이기떄문에 빈칸으로 두기 -->
+	<form id="myForm" action="" method="POST">
+		action : 
+		<select>
+			<!-- 내가 호출할 핸들러를 부르기 -->
+			<option selected="selected">/springweb/sessionAttributesTest01</option>
+			<option>/springweb/sessionAttributesTest02</option>
+			<option>/springweb/sessionAttributesTest03</option>
+			<option>/springweb/sessionAttributesTest04</option>
+			<option>/springweb/sessionAttributesTest05</option>
+			<option>/springweb/sessionAttributesTest06</option>
+			<option>/springweb/sessionAttributesTest07</option>
+		</select>
+		<br><br>
+		<!-- request로 전달할 메세지를 명시하기 -->
+		전달할 메세지 : <input type="text" name="msg" >
+		<br><br>
+		<!-- 학생의 정보를 등록 -->
+		학생 번호 : <input type="number" name="studentNumber" >
+		<br><br>
+		학생 이름 : <input type="text" name="studentName" >
+		<br><br>
+		학생 학과 : <input type="text" name="studentDept" >
+		<br><br>
+		<!-- event 처리를 통해서 자바스크립트 이벤트 처리를 해줘도 되겠쬬? -->
+		
+		<input type="submit" value="등록" onclick="myFunc()">
+				
+	</form>
+</body>
+</html>
